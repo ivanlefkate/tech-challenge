@@ -25,10 +25,14 @@ Number of app servers can be modified by changing the value of "app_host_count" 
 
 If you you need to replace the ssh key, please remember to taint the instances so that they are recreated with the new key
 >terraform taint aws_instance.mongo_host
+
 >terraform taint aws_instance.app_hosts[0]
+
 >terraform taint aws_instance.app_hosts[1]
+
 >terraform taint aws_instance.app_hosts[3]
 
 Then you can recreate:
 >mkdir -p .ssh && ssh-keygen -f .ssh/id_rsa -N ""
+
 >terraform apply -var pub_key_location=$(pwd)/.ssh/id_rsa.pub -var private_key_location=$(pwd)/.ssh/id_rsa -var app_host_count=2
