@@ -1,0 +1,10 @@
+# Ignore all . files and . folders
+.*
+
+# Ignore tfstate files
+terraform.tfstate*
+
+# Do not ignore .gitignore, .gitkeep and .gitattributes files
+!/**/.gitignore
+!/**/.gitkeep
+!/**/.gitattributes
